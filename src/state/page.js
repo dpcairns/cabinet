@@ -7,8 +7,3 @@ const components = {
   ABOUT: 'About',
   [NOT_FOUND]: 'NotFound',
 };
-
-// NOTES: this is the primary reducer demonstrating how RFR replaces the need
-// for React Router's <Route /> component.
-//
-// ALSO:  Forget a switch, use a hash table for perf.

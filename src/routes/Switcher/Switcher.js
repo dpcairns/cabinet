@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import universal from 'react-universal-component';
 import glamorous from 'glamorous';
+import universal from 'react-universal-component';
 import { defaultStyle } from './Switcher.style';
 
 const UniversalComponent = universal(
   ({ page }) => import(`../${page}/${page}`),
   {
     minDelay: 500,
-    loading: () => <div className='spinner'>Loading . . .</div>,
-    error: () => <div className='notFound'>PAGE NOT FOUND - 404</div>,
+    loading: () => <div><div /></div>,
+    error: () => <div>PAGE NOT FOUND - 404</div>,
   },
 );
 
-const Switcher = ({ className, page }) =>
+const Switcher = ({ page, className }) =>
   <div className={className}>
     <UniversalComponent page={page} />
   </div>;

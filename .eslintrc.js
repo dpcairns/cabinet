@@ -58,7 +58,7 @@ module.exports = {
     camelcase: 1,
     'prefer-template': 1,
     'react/no-array-index-key': 1,
-    'global-require': 1,
+    'global-require': 0,
     'react/jsx-indent': 1,
     'dot-notation': 1,
     'import/no-named-default': 1,
@@ -93,18 +93,7 @@ module.exports = {
       }
     ],
     'comma-dangle': 1,
-    'max-len': [
-      'error',
-      {
-        code: 80,
-        tabWidth: 2,
-        ignoreUrls: true,
-        ignoreComments: true,
-        ignoreRegExpLiterals: true,
-        ignoreStrings: true,
-        ignoreTemplateLiterals: true
-      }
-    ],
+    'max-len': 0,
     'react/sort-comp': [
       2,
       {

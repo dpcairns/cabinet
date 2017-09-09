@@ -1,12 +1,12 @@
 import React from 'react';
 import glamorous from 'glamorous';
 import Link from 'redux-first-router-link';
-import { defaultStyle } from './Footer.style';
+import { defaultStyle } from './Header.style';
 
-const Footer = ({ className }) =>
+const Header = ({ className }) =>
   <div className={className}>
     <Link to={{ type: 'HOME' }}>Go Home</Link>
     <Link to={{ type: 'ABOUT' }}>About</Link>
   </div>;
 
-export default glamorous(Footer)(defaultStyle);
+export default glamorous(Header)(defaultStyle);
