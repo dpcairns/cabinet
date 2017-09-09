@@ -25,8 +25,8 @@ yarn start
 *client code:*
 - [***src/configureStore.js***](./src/configureStore.js)
 - [***src/routesMap.js***](./src/routesMap.js) - ***(the primary work of RFR)***
-- [***src/components/Switcher.js***](./src/components/Switcher.js) - *(universal component concept)*
-- [***src/components/Sidebar.js***](./src/components/Sidebar.js) - *(look at the different ways to link + dispatch URL-aware actions)*
+- [***src/routes/Switcher.js***](./src/routes/Switcher.js) - *(universal component concept)*
+- [***src/routes/Sidebar.js***](./src/routes/Sidebar.js) - *(look at the different ways to link + dispatch URL-aware actions)*
 
 
 *server code:*

@@ -9,7 +9,7 @@ module.exports = {
     allowImportExportEverywhere: false
   },
   plugins: ['flowtype'],
-  extends: ['airbnb', 'plugin:flowtype/recommended'],
+  extends: ['airbnb'],
   settings: {
     flowtype: {
       onlyFilesWithFlowAnnotation: true
@@ -65,12 +65,11 @@ module.exports = {
     'no-unused-vars': 1,
     'flowtype/no-weak-types': 1,
     'consistent-return': 1,
-    'import/prefer-default-export': 1,
-    'no-console': 1,
-    'jsx-a11y/no-static-element-interactions': 1,
+    'no-console': 0,
+    'jsx-a11y/no-static-element-interactions': 0,
+    'import/prefer-default-export': 0,
     'no-case-declarations': 1,
-    semi: [2, 'never'],
-    'flowtype/semi': [2, 'never'],
+    semi: 1,
     'jsx-quotes': [2, 'prefer-single'],
     'react/jsx-filename-extension': [2, { extensions: ['.jsx', '.js'] }],
     'spaced-comment': [2, 'always', { markers: ['?'] }],
@@ -93,16 +92,7 @@ module.exports = {
         peerDependencies: true
       }
     ],
-    'comma-dangle': [
-      2,
-      {
-        arrays: 'never',
-        objects: 'never',
-        imports: 'never',
-        exports: 'never',
-        functions: 'never'
-      }
-    ],
+    'comma-dangle': 1,
     'max-len': [
       'error',
       {
