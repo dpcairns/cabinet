@@ -1,6 +1,6 @@
 ## Cabinet
 
-![cabinet](./screenshot.png)
+![cabinet](./cabinet.png)
 
 My adaptation of this very fine boilerplate, with universer, code-split rendering: (faceyspacey -- redux-first-router-boilerplate)[https://github.com/faceyspacey/redux-first-router-boilerplate]
 
