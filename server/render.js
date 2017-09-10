@@ -6,6 +6,10 @@ import { flushChunkNames } from 'react-universal-component/server';
 import flushChunks from 'webpack-flush-chunks';
 import configureStore from './configureStore';
 import { App } from '../src/routes';
+import { makeGlobalStyles, makeFlexboxGrid } from '../src/style';
+
+makeGlobalStyles();
+makeFlexboxGrid();
 
 export default ({ clientStats }) => async (req, res) => {
   const store = await configureStore(req, res);
@@ -15,7 +19,7 @@ export default ({ clientStats }) => async (req, res) => {
   const { html, css } = renderStatic(() => ReactDOMServer.renderToString(app));
   const stateJson = JSON.stringify(store.getState());
   const chunkNames = flushChunkNames();
-  const { Js } = flushChunks(clientStats, { chunkNames });
+  const { js } = flushChunks(clientStats, { chunkNames });
 
   await res.send(
     `<!doctype html>
@@ -29,7 +33,7 @@ export default ({ clientStats }) => async (req, res) => {
           <script>window.REDUX_STATE = ${stateJson}</script>
           <div id="root">${html}</div>
           <script type='text/javascript' src='/static/vendor.js'></script>
-          <script>${Js}</script>
+          ${js.toString()}
         </body>
       </html>`,
   );

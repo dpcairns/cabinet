@@ -1,7 +1,7 @@
 export const defaultStyle = {
   position: 'relative',
   margin: '0 10px',
-  height: 'calc(100vh - 20px)',
+  height: 'calc(100vh)',
   overflow: 'hidden',
   flex: 1,
 

@@ -1,7 +1,11 @@
 export const defaultStyle = {
   background: 'lightgreen',
-  color: 'yellow',
   boxSizing: 'border-box',
   padding: '10px',
   display: 'block !important',
 };
+
+export const mapPropsAndThemeToStyle = ({ theme }) => ({
+  color: theme.primary,
+  background: theme.primaryInverse,
+});
