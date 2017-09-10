@@ -27,7 +27,10 @@ module.exports = {
   // devtool: 'source-map',
   devtool: 'eval',
   entry: ['babel-polyfill', res('../server/render.js')],
-  externals,
+  externals: {
+    ...externals,
+    'glamor/server': 'glamor/server',
+  },
   output: {
     path: res('../buildServer'),
     filename: '[name].js',

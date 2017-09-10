@@ -4,6 +4,9 @@ const WriteFilePlugin = require('write-file-webpack-plugin');
 const AutoDllPlugin = require('autodll-webpack-plugin');
 
 module.exports = {
+  externals: {
+    'glamor/server': 'glamor/server',
+  },
   name: 'client',
   target: 'web',
   // devtool: 'source-map',

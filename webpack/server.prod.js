@@ -26,7 +26,10 @@ module.exports = {
   target: 'node',
   devtool: 'source-map',
   entry: [res('../server/render.js')],
-  externals,
+  externals: {
+    ...externals,
+    'glamor/server': 'glamor/server',
+  },
   output: {
     path: res('../buildServer'),
     filename: '[name].js',
