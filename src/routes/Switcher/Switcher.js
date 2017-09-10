@@ -8,16 +8,18 @@ const UniversalComponent = universal(
   ({ page }) => import(`../${page}/${page}`),
   {
     minDelay: 500,
-    loading: () => <div><div /></div>,
     error: () => <div>PAGE NOT FOUND - 404</div>,
   },
 );
 
-const Switcher = ({ page, className }) =>
+const Switcher = ({ page, className }) => (
   <div className={className}>
     <UniversalComponent page={page} />
-  </div>;
+  </div>
+);
 
 const mapState = ({ page }) => ({ page });
 
-export default glamorous(connect(mapState)(Switcher))(defaultStyle);
+const glamSwitcher = glamorous(Switcher)(defaultStyle);
+
+export default connect(mapState)(glamSwitcher);
