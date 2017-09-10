@@ -12,16 +12,11 @@ export default ({ clientStats }) => async (req, res) => {
   if (!store) return; // no store means redirect was already served
 
   const app = createApp(App, store);
-  const stuff = renderStatic(() => ReactDOMServer.renderToString(app));
+  const { html, css } = renderStatic(() => ReactDOMServer.renderToString(app));
   const stateJson = JSON.stringify(store.getState());
   const chunkNames = flushChunkNames();
-  const { js } = flushChunks(clientStats, { chunkNames });
+  const { Js } = flushChunks(clientStats, { chunkNames });
 
-  console.log(stuff);
-  console.log('REQUESTED PATH:', req.path);
-  console.log('CHUNK NAMES RENDERED', chunkNames);
-
-  const { html, css } = stuff;
   await res.send(
     `<!doctype html>
       <html>
@@ -34,7 +29,7 @@ export default ({ clientStats }) => async (req, res) => {
           <script>window.REDUX_STATE = ${stateJson}</script>
           <div id="root">${html}</div>
           <script type='text/javascript' src='/static/vendor.js'></script>
-          ${js}
+          ${Js}
         </body>
       </html>`,
   );
