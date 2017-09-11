@@ -7,6 +7,7 @@ import flushChunks from 'webpack-flush-chunks';
 import configureStore from './configureStore';
 import { App } from '../src/routes';
 import { makeGlobalStyles, makeFlexboxGrid } from '../src/style';
+import favicon from './favicon.ico';
 
 makeGlobalStyles();
 makeFlexboxGrid();
@@ -28,6 +29,7 @@ export default ({ clientStats }) => async (req, res) => {
       <html>
         <head>
           <meta charset="utf-8">
+          <link rel="icon" href="${favicon}" type="image/x-icon"/>
           <title>redux-first-router-boilerplate</title>
           <style>${css}</style>
         </head>

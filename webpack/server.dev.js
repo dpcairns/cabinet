@@ -44,6 +44,10 @@ module.exports = {
         exclude: /node_modules/,
         use: 'babel-loader',
       },
+      {
+        test: /\.(jpe?g|png|gif|svg|ico)$/i,
+        use: 'url-loader?limit=8192',
+      },
     ],
   },
   resolve: {
