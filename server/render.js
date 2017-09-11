@@ -23,14 +23,16 @@ export default ({ clientStats }) => async (req, res) => {
   const stateJson = JSON.stringify(store.getState());
   const chunkNames = flushChunkNames();
   const { js } = flushChunks(clientStats, { chunkNames });
+  const { title } = store.getState();
 
+  console.log(title);
   await res.send(
     `<!doctype html>
       <html>
         <head>
           <meta charset="utf-8">
+          <title>${title}</title>
           <link rel="icon" href="${favicon}" type="image/x-icon"/>
-          <title>redux-first-router-boilerplate</title>
           <style>${css}</style>
         </head>
         <body>
