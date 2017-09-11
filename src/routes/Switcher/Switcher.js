@@ -7,6 +7,7 @@ import { defaultStyle } from './Switcher.style';
 const UniversalComponent = universal(
   ({ page }) => import(`../${page}/${page}`),
   {
+    minDelay: 500,
     loading: () => <div>LOADING . . . </div>,
     error: () => <div>PAGE NOT FOUND - 404</div>,
   },

@@ -16,7 +16,9 @@ export default ({ clientStats }) => async (req, res) => {
   if (!store) return; // no store means redirect was already served
 
   const app = createApp(App, store);
-  const { html, css } = renderStatic(() => ReactDOMServer.renderToString(app));
+  const { html, css } = renderStatic(() =>
+    ReactDOMServer.renderToStaticMarkup(app),
+  );
   const stateJson = JSON.stringify(store.getState());
   const chunkNames = flushChunkNames();
   const { js } = flushChunks(clientStats, { chunkNames });
@@ -33,7 +35,7 @@ export default ({ clientStats }) => async (req, res) => {
           <script>window.REDUX_STATE = ${stateJson}</script>
           <div id="root">${html}</div>
           <script type='text/javascript' src='/static/vendor.js'></script>
-          ${js.toString()}
+          ${js}
         </body>
       </html>`,
   );
